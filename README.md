@@ -50,5 +50,5 @@ A aplicação permite realizar o cadastro, consulta, atualização e exclusão d
    ```
 1. Execute a aplicação:
    ```bash
-   java src.Main
+   java -cp src Main
    ```
