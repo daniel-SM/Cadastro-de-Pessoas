@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.io.Console;
 
 class Main {
   public static void main(String[] args) {
@@ -6,7 +6,12 @@ class Main {
     Actions actions = new Actions();
 
     // Iniciando Scane para leitura do teclado
-    Scanner sc = new Scanner(System.in);
+    Console c = System.console();
+
+    if (c == null) {
+      System.out.println("Console não disponível!");
+      System.exit(1);
+    }
 
     // Iniciando variável de controle do loop do menu
     boolean loop = true;
@@ -14,7 +19,7 @@ class Main {
     // Loop do menu para escolher as opções
     while (loop) {
       // Imprimindo as opções do menu
-      System.out.println("### Menu");
+      System.out.println("\n### Menu");
       System.out.println("1. Criar Pessoa");
       System.out.println("2. Buscar Pessoa");
       System.out.println("3. Atualizar Pessoa");
@@ -23,7 +28,10 @@ class Main {
 
       // Recebendo a opção escolhida
       System.out.print("\nDigite sua opção: ");
-      String option = sc.nextLine();
+      String option = c.readLine();
+
+      // Quebrando linha no terminal
+      System.out.println();
 
       // Verificando cada caso das opções
       switch (option) {
@@ -54,11 +62,10 @@ class Main {
         case "5":
           System.out.println("Saindo...");
           loop = false;
-          sc.close();
           break;
 
         default:
-          System.out.println("\nOpção inválida! Tente novamente.\n");
+          System.out.println("Opção inválida! Tente novamente.");
           break;
       } // Fim de switch (option)
     } // Fim de while (loop)

@@ -1,11 +1,10 @@
-import java.util.Scanner;
-// TODO: importar classe para manipular o arquivo
+import java.io.Console;
 
 public class Actions {
-  Scanner sc;
+  Console console;
 
   Actions() {
-    this.sc = new Scanner(System.in);
+    this.console = System.console();
     // TODO: criar nova intância da classe importada para manipular arquivo
   }
 
@@ -13,16 +12,16 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para criar");
 
     System.out.print("Digite o nome: ");
-    String name = sc.nextLine();
+    String name = console.readLine();
 
     System.out.print("Digite o telefone: ");
-    String phone = sc.nextLine();
+    String phone = console.readLine();
 
     System.out.print("Digite o email: ");
-    String email = sc.nextLine();
+    String email = console.readLine();
 
     System.out.print("Digite o idade: ");
-    int age = sc.nextInt();
+    int age = Integer.parseInt(console.readLine());
 
     People people = new People(name, age, phone, email);
 
@@ -36,7 +35,7 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para buscar");
 
     System.out.print("Digite o nome: ");
-    String name = sc.nextLine();
+    String name = console.readLine();
 
     // TODO: localizar pessoa no arquivo
     // OBS: chamar classe para armazenar buscar pessoa no arquivo
@@ -48,16 +47,16 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para atualizar");
 
     System.out.print("Digite o nome: ");
-    String name = sc.nextLine();
+    String name = console.readLine();
 
     System.out.print("Digite o idade: ");
-    int age = sc.nextInt();
+    int age = Integer.parseInt(console.readLine());
 
     System.out.print("Digite o telefone: ");
-    String phone = sc.nextLine();
+    String phone = console.readLine();
 
     System.out.print("Digite o email: ");
-    String email = sc.nextLine();
+    String email = console.readLine();
 
     People people = new People(name, age, phone, email);
 
@@ -71,7 +70,7 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para apagar");
 
     System.out.print("Digite o nome: ");
-    String name = sc.nextLine();
+    String name = console.readLine();
 
     // TODO: localizar e apagar pessoa no arquivo
     // OBS: chamar classe para remover pessoa no arquivo
