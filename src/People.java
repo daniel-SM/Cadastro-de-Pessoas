@@ -1,10 +1,10 @@
 // Classe Pessoa para modelar uma pessoa real 
 public class People {
   // Atributos de Pessoa
-  String name;
-  int age;
-  String phone;
-  String email;
+  private String name;
+  private int age;
+  private String phone;
+  private String email;
 
   // Construtor de Pessoa com todos os atributos
   public People(String name, int age, String phone, String email) {
@@ -28,5 +28,16 @@ public class People {
   
   // Getter & Setter de "phone"
   public String getPhone() { return phone; }
-  public void setPhone(String phone) { this.phone = phone; }  
+  public void setPhone(String phone) { this.phone = phone; } 
+  
+  // Substituindo metodo toString() para gravar objeto em arquivo
+  @Override
+  public String toString() {
+    return (
+      this.getName() + "," + 
+      this.getAge() + "," + 
+      this.getPhone() + "," + 
+      this.getEmail()
+    );
+  }
 }
