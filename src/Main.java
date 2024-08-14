@@ -36,25 +36,21 @@ class Main {
       // Verificando cada caso das opções
       switch (option) {
         case "1":
-          System.out.println("Opção escolhida: " + option + "\n");
           // Realizando ação para criar nova pessoa
           actions.create();
           break;
           
           case "2":
-          System.out.println("Opção escolhida: " + option + "\n");
           // Realizando ação para buscar pessoa
           actions.read();
           break;
           
           case "3":
-          System.out.println("Opção escolhida: " + option + "\n");
           // Realizando ação para atualizar pessoa
           actions.update();
           break;
           
           case "4":
-          System.out.println("Opção escolhida: " + option + "\n");
           // Realizando ação para apagar pessoa
           actions.delete();
           break;
