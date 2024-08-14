@@ -2,16 +2,16 @@ import java.io.Console;
 
 class Main {
   public static void main(String[] args) {
-    // Criando objetos de ações do menu
-    Actions actions = new Actions();
-
     // Iniciando Scane para leitura do teclado
     Console c = System.console();
 
+    // Verificando se há console disponível
     if (c == null) {
       System.out.println("Console não disponível!");
       System.exit(1);
     }
+    // Criando objetos de ações do menu
+    Actions actions = new Actions(c);
 
     // Iniciando variável de controle do loop do menu
     boolean loop = true;

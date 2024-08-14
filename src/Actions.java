@@ -1,32 +1,33 @@
 import java.io.Console;
 
 public class Actions {
-  Console console;
+  private Console console;
+  private Storage storage; 
 
-  Actions() {
-    this.console = System.console();
-    // TODO: criar nova intância da classe importada para manipular arquivo
+  Actions(Console c) {
+    this.console = c;
+    this.storage = new Storage("data.txt");
   }
 
   void create() {
     System.out.println("\n### Dados da Pessoa para criar");
 
     System.out.print("Digite o nome: ");
-    String name = console.readLine();
+    String name = this.console.readLine();
 
     System.out.print("Digite o telefone: ");
-    String phone = console.readLine();
+    String phone = this.console.readLine();
 
     System.out.print("Digite o email: ");
-    String email = console.readLine();
+    String email = this.console.readLine();
 
     System.out.print("Digite o idade: ");
-    int age = Integer.parseInt(console.readLine());
+    int age = Integer.parseInt(this.console.readLine());
 
     People people = new People(name, age, phone, email);
 
-    // TODO: gravar pessoa em arquivo
-    // OBS: chamar classe para armazenar nova pessoa no arquivo
+    // Chamando método para cadastrar nova pessoa
+    this.storage.add(people);
 
     System.out.println("\nCriado com sucesso!\n");
   }
@@ -35,10 +36,10 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para buscar");
 
     System.out.print("Digite o nome: ");
-    String name = console.readLine();
+    String name = this.console.readLine();
 
-    // TODO: localizar pessoa no arquivo
-    // OBS: chamar classe para armazenar buscar pessoa no arquivo
+    // Chamando método para buscar uma pessoa pelo nome
+    this.storage.search(name);
 
     System.out.println("\nEncontrado com sucesso!\n");
   }
@@ -47,21 +48,21 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para atualizar");
 
     System.out.print("Digite o nome: ");
-    String name = console.readLine();
+    String name = this.console.readLine();
 
     System.out.print("Digite o idade: ");
-    int age = Integer.parseInt(console.readLine());
+    int age = Integer.parseInt(this.console.readLine());
 
     System.out.print("Digite o telefone: ");
-    String phone = console.readLine();
+    String phone = this.console.readLine();
 
     System.out.print("Digite o email: ");
-    String email = console.readLine();
+    String email = this.console.readLine();
 
     People people = new People(name, age, phone, email);
 
-    // TODO: localizar e atualizar pessoa no arquivo
-    // OBS: chamar classe para atualizar pessoa no arquivo
+    // Chamando método para atualizar uma pessoa usando o nome
+    this.storage.update(people);
 
     System.out.println("\nAtualizado com sucesso!\n");
   }
@@ -70,10 +71,10 @@ public class Actions {
     System.out.println("\n### Dados da Pessoa para apagar");
 
     System.out.print("Digite o nome: ");
-    String name = console.readLine();
+    String name = this.console.readLine();
 
-    // TODO: localizar e apagar pessoa no arquivo
-    // OBS: chamar classe para remover pessoa no arquivo
+    // Chamando método para apagar uma pessoa usando o nome
+    this.storage.remove(name);
 
     System.out.println("\nApagado com sucesso!\n");
   }
