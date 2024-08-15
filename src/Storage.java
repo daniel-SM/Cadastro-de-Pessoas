@@ -6,9 +6,17 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * A classe Storage é responsável por gerenciar a escrita e leitura do arquivo em que é armazenado os registros das pessoas.
+ */
 public class Storage {
   private String path;
 
+  /**
+   * Construtor da classe Storage.
+   *
+   * @param path O caminho do arquivo onde os dados serão armazenados.
+   */
   Storage(String path) {
     this.path = path;
 
@@ -25,6 +33,11 @@ public class Storage {
     }
   }
 
+  /**
+   * Grava uma lista de pessoas no arquivo.
+   *
+   * @param list A lista de pessoas a serem gravadas.
+   */
   private void write(ArrayList<People> list) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.path))) {
       for (People people : list) {
@@ -37,6 +50,11 @@ public class Storage {
     }
   } // Fim da funcao write()
 
+  /**
+   * Lê o arquivo e retorna uma lista de pessoas.
+   *
+   * @return A lista de pessoas lidas do arquivo.
+   */
   private ArrayList<People> read() {
     // Iniciando a lista vazia de pessoas
     ArrayList<People> list = new ArrayList<>();
@@ -68,6 +86,11 @@ public class Storage {
     return list;
   } // Fim da funcao read()
 
+  /**
+   * Adiciona uma nova pessoa ao arquivo.
+   *
+   * @param p A pessoa a ser adicionada.
+   */
   public void add(People p) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.path, true))) {
       writer.write(p.toString());
@@ -77,6 +100,12 @@ public class Storage {
     }
   } // Fim da funcao add()
 
+  /**
+   * Busca uma pessoa no arquivo com base no nome.
+   *
+   * @param name O nome da pessoa a ser buscada.
+   * @return A pessoa encontrada ou null se não for encontrada.
+   */
   public People search(String name) {
     // Variavel para guardar a pessoa encontrada
     // ou nulo caso nao seja encontrada
@@ -108,6 +137,12 @@ public class Storage {
     return people;
   } // Fim da funcao search
 
+  /**
+   * Atualiza os dados de uma pessoa existente no arquivo com base no nome.
+   *
+   * @param people A pessoa com os novos dados.
+   * @return true se a pessoa foi encontrada e atualizada, false caso contrário.
+   */
   public boolean update(People people) {
     // Lendo o arquivo e obtendo as pessoas
     ArrayList<People> list = this.read();
@@ -132,6 +167,12 @@ public class Storage {
     return false;
   } // Fim da funcao update()
 
+  /**
+   * Remove uma pessoa do arquivo com base no nome.
+   *
+   * @param name O nome da pessoa a ser removida.
+   * @return true se a pessoa foi encontrada e removida, false caso contrário.
+   */
   public boolean remove(String name) {
     // Lendo o arquivo e obtendo as pessoas
     ArrayList<People> list = this.read();

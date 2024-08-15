@@ -1,14 +1,25 @@
 import java.io.Console;
 
+/**
+ * A classe Actions possui métodos para receber do usuário as entradas necessárias para as ações de criar, buscar, atualizar e deletar registros de pessoas.
+ */
 public class Actions {
   private Console console;
   private Storage storage; 
 
+  /**
+   * Construtor da classe Actions.
+   *
+   * @param c O console para fazer a entrada de dados.
+   */
   Actions(Console c) {
     this.console = c;
     this.storage = new Storage("data.txt");
   }
 
+  /**
+   * Cria um novo registro de pessoa, solicitando os dados ao usuário.
+   */
   public void create() {
     System.out.println("\n### Dados da Pessoa para criar");
 
@@ -33,6 +44,9 @@ public class Actions {
     this.console.readLine("\nAperte enter para continuar...\n");
   }
 
+  /**
+   * Busca um registro de pessoa com base no nome fornecido pelo usuário.
+   */
   public void read() {
     System.out.println("\n### Dados da Pessoa para buscar");
 
@@ -56,6 +70,9 @@ public class Actions {
     this.console.readLine("\nAperte enter para continuar...\n");
   }
 
+  /**
+   * Atualiza um registro de pessoa com base nos dados fornecidos pelo usuário.
+   */
   public void update() {
     System.out.println("\n### Dados da Pessoa para atualizar");
 
@@ -85,6 +102,9 @@ public class Actions {
     this.console.readLine("\nAperte enter para continuar...\n");
   }
 
+  /**
+   * Deleta um registro de pessoa com base no nome fornecido pelo usuário.
+   */
   public void delete() {
     System.out.println("\n### Dados da Pessoa para apagar");
 

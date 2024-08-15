@@ -1,5 +1,8 @@
 import java.io.Console;
 
+/**
+ * A classe Main contém o ponto de entrada do programa (o método main) e gerencia o menu principal para as operações de criar, buscar, atualizar e deletar registros de pessoas.
+ */
 class Main {
   public static void main(String[] args) {
     // Iniciando Scane para leitura do teclado
